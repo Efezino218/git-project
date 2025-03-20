@@ -1,27 +1,279 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Git Project</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Git & GitHub Collaboration Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
-    <script src='main.js'></script>
+
 </head>
 
 <body>
-    <h1>Hello, Git and GitHub!</h1>
-    <p>This is my first project using Git and GitHub.</p>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">DevCollab</div>
+                <ul class="nav-links">
+                    <li><a href="#getting-started">Getting Started</a></li>
+                    <li><a href="#basic-workflow">Basic Workflow</a></li>
+                    <li><a href="#collaboration">Team Collaboration</a></li>
+                    <li><a href="#best-practices">Best Practices</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <main class="container">
+        <section id="intro">
+            <h1>Git & GitHub Collaboration Guide</h1>
+            <p class="card">
+                Welcome to the comprehensive guide on using Git and GitHub for collaborative development. This guide
+                will walk you through setting up Git, creating repositories, understanding the basic workflow, and
+                collaborating effectively with other developers.
+            </p>
+        </section>
 
+        <section id="getting-started">
+            <h2>Getting Started with Git and GitHub</h2>
+
+            <h3>Installing Git</h3>
+            <p>First, you need to install Git on your local machine:</p>
+            <div class="code-block">
+                # For macOS (using Homebrew)<br>
+                brew install git<br><br>
+
+                # For Ubuntu/Debian<br>
+                sudo apt update<br>
+                sudo apt install git<br><br>
+
+                # For Windows<br>
+                # Download from https://git-scm.com/download/win
+            </div>
+
+            <h3>Configuring Git</h3>
+            <p>Set up your identity in Git:</p>
+            <div class="code-block">
+                git config --global user.name "Your Name"<br>
+                git config --global user.email "your.email@example.com"
+            </div>
+
+            <h3>Creating a GitHub Account</h3>
+            <p>If you don't have a GitHub account already:</p>
+            <ol>
+                <li>Go to <a href="https://github.com">github.com</a></li>
+                <li>Click on "Sign up" and follow the instructions</li>
+                <li>Verify your email address</li>
+            </ol>
+
+            <h3>Creating Your First Repository</h3>
+            <p>To create a new repository on GitHub:</p>
+            <ol>
+                <li>Click the "+" icon in the top right corner</li>
+                <li>Select "New repository"</li>
+                <li>Fill in the repository name and description</li>
+                <li>Choose public or private visibility</li>
+                <li>Optionally add a README file, .gitignore, and license</li>
+                <li>Click "Create repository"</li>
+            </ol>
+        </section>
+
+        <section id="basic-workflow">
+            <h2>Basic Git Workflow</h2>
+
+            <h3>Cloning a Repository</h3>
+            <p>To get a copy of the repository on your local machine:</p>
+            <div class="code-block">
+                git clone https://github.com/username/repository.git
+            </div>
+
+            <h3>Creating and Switching Branches</h3>
+            <p>Creating a new branch for your work:</p>
+            <div class="code-block">
+                # Create and switch to a new branch<br>
+                git checkout -b feature-name<br><br>
+
+                # List all branches<br>
+                git branch<br><br>
+
+                # Switch to an existing branch<br>
+                git checkout branch-name
+            </div>
+
+            <h3>Making Changes</h3>
+            <p>The basic workflow for making changes:</p>
+            <div class="code-block">
+                # Check status of your changes<br>
+                git status<br><br>
+
+                # Stage changes for commit<br>
+                git add filename.ext # Stage specific file<br>
+                git add . # Stage all changes<br><br>
+
+                # Commit your changes<br>
+                git commit -m "Descriptive commit message"<br><br>
+
+                # Push changes to GitHub<br>
+                git push origin branch-name
+            </div>
+
+            <h3>Pulling Changes from Remote</h3>
+            <p>Keeping your local repository up to date:</p>
+            <div class="code-block">
+                # Update your current branch with remote changes<br>
+                git pull origin branch-name
+            </div>
+        </section>
+
+        <section id="collaboration">
+            <h2>Collaborating with Other Developers</h2>
+
+            <h3>Fork and Pull Request Workflow</h3>
+            <p>A common workflow for open-source projects:</p>
+            <ol>
+                <li>Fork the repository to your GitHub account</li>
+                <li>Clone your fork to your local machine</li>
+                <li>Create a new branch for your changes</li>
+                <li>Make changes and commit them</li>
+                <li>Push your branch to your fork</li>
+                <li>Create a pull request from your fork to the original repository</li>
+            </ol>
+
+            <h3>Working on a Shared Repository</h3>
+            <p>For team members with write access to the same repository:</p>
+            <ol>
+                <li>Clone the repository</li>
+                <li>Create a branch for your feature or bugfix</li>
+                <li>Make changes and commit them</li>
+                <li>Push your branch to the remote repository</li>
+                <li>Create a pull request for code review</li>
+                <li>After approval, merge the pull request</li>
+            </ol>
+
+            <h3>Handling Merge Conflicts</h3>
+            <p>When Git cannot automatically merge changes:</p>
+            <div class="code-block">
+                # Pull the latest changes from the target branch<br>
+                git checkout main<br>
+                git pull origin main<br><br>
+
+                # Switch back to your branch and merge<br>
+                git checkout your-branch<br>
+                git merge main<br><br>
+
+                # If conflicts occur, resolve them in your code editor<br>
+                # After resolving, mark as resolved<br>
+                git add resolved-file.ext<br><br>
+
+                # Complete the merge<br>
+                git commit -m "Merge main into your-branch"
+            </div>
+        </section>
+
+        <section id="best-practices">
+            <h2>Git and GitHub Best Practices</h2>
+
+            <div class="card">
+                <h3>Commit Messages</h3>
+                <ul>
+                    <li>Write clear, concise commit messages</li>
+                    <li>Use present tense: "Add feature" not "Added feature"</li>
+                    <li>First line should be under 50 characters</li>
+                    <li>Include a detailed description if needed after the first line</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Branching Strategy</h3>
+                <ul>
+                    <li>Use feature branches for new features</li>
+                    <li>Use bugfix branches for bug fixes</li>
+                    <li>Keep the main branch stable and deployable</li>
+                    <li>Consider using the Git Flow or GitHub Flow workflow</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Pull Requests</h3>
+                <ul>
+                    <li>Create descriptive pull request titles</li>
+                    <li>Include a detailed description of changes</li>
+                    <li>Link relevant issues</li>
+                    <li>Request reviews from team members</li>
+                    <li>Address feedback promptly</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Code Reviews</h3>
+                <ul>
+                    <li>Be respectful and constructive in comments</li>
+                    <li>Focus on code, not the person</li>
+                    <li>Look for clarity, correctness, and maintainability</li>
+                    <li>Suggest improvements, not just point out issues</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="resources">
+            <h2>Additional Resources</h2>
+            <div class="card">
+                <h3>Learning Resources</h3>
+                <ul>
+                    <li><a href="https://git-scm.com/book/en/v2">Pro Git Book</a> - Comprehensive guide to Git</li>
+                    <li><a href="https://docs.github.com/en">GitHub Documentation</a> - Official GitHub guides</li>
+                    <li><a href="https://learngitbranching.js.org/">Learn Git Branching</a> - Interactive tutorial</li>
+                    <li><a href="https://www.atlassian.com/git/tutorials">Atlassian Git Tutorials</a> - In-depth Git
+                        tutorials</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Useful Tools</h3>
+                <ul>
+                    <li><a href="https://desktop.github.com/">GitHub Desktop</a> - GUI for Git and GitHub</li>
+                    <li><a href="https://www.gitkraken.com/">GitKraken</a> - Visual Git client</li>
+                    <li><a href="https://www.sourcetreeapp.com/">Sourcetree</a> - Free Git GUI for Windows and Mac</li>
+                    <li><a href="https://gitmoji.dev/">Gitmoji</a> - Emoji guide for commit messages</li>
+                </ul>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer">
-        <div class="footer-container">
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h3>DevCollab</h3>
+                <p>A comprehensive guide to Git and GitHub collaboration for developers of all skill levels.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#getting-started">Getting Started</a></li>
+                    <li><a href="#basic-workflow">Basic Workflow</a></li>
+                    <li><a href="#collaboration">Collaboration</a></li>
+                    <li><a href="#best-practices">Best Practices</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright container">
             <p>&copy; 2025 effizydev. All rights reserved.</p>
         </div>
     </footer>
-
 </body>
 
 </html>
