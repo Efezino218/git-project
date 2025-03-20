@@ -12,3 +12,18 @@ h1 {
 p {
     color: #666;
 }
+
+
+
+.footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+}
